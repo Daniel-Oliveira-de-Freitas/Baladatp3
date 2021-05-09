@@ -53,14 +53,14 @@ public class produtoController {
 	@FXML
 	private TableColumn<String, Produto> fornecedort;
 	@FXML
-	private TextField  Aquantidade, Apeso, Adatacompra, Adatavalidade, Avalorunitcomp, Avalortotcomp, Avalorunitvenda, Avalortotvenda;
+	private TextField  Aquantidade, Apeso, Adatacompra, Adatavalidade, Avalorunitcomp, Avalortotcomp, Avalorunitvenda, Avalortotvenda,Adescricao,Anotafiscal;
 	@FXML
 	private Tab telaincluirProduto, telaConsultarProduto;
 	@FXML
 	private TextField lblnome, lbldescProd, lblquant, lblfornecedor, lblcnpj, lblcategoria, lblnf,
 			lblpeso, lblvlunitcomp, lblvltotcomp, lblvlunitvend, lblvltotvend, lbldtcomp, lbldtval;
 	@FXML
-	private Label lblcod, Acod , Anome, Adescricao;
+	private Label lblcod, Acod , Anome,Afornecedor;
 
 	public void acaoSalvar() {
 		try {
@@ -196,7 +196,7 @@ public class produtoController {
 		lblpeso.setText("");
 		lblvlunitcomp.setText("");
 		lblvltotcomp.setText("");
-		lblvlunitcomp.setText("");
+		lblvlunitvend.setText("");
 		lblvltotvend.setText("");
 	}
 
@@ -273,9 +273,7 @@ public class produtoController {
 			AvisoConfirm.setTitle("Atenção");
 			AvisoConfirm.setContentText("Você esta seguro na exclusão deste item");
 			AvisoConfirm.setHeaderText(null);
-			
 			Optional<ButtonType> result = AvisoConfirm.showAndWait()  ;
-			
 			if(result.isPresent()&& result.get() == ButtonType.OK) {
 			Produto item = tabelaproduto.getSelectionModel().getSelectedItem();
    			tabelaproduto.getItems().remove(item);
@@ -297,9 +295,11 @@ public class produtoController {
 			p = Main.instanciaProduto().ConsultaProdutoCod(prod);
 			Acod.setText(p.getCod());
 			Anome.setText(p.getNome());
+			Afornecedor.setText(p.getFornecedor());
 			Adescricao.setText(p.getDescProd());
 			Aquantidade.setText(p.getQuant());
 			Apeso.setText(p.getPeso());
+			Anotafiscal.setText(p.getNf());
 			Adatacompra.setText(p.getDataComp());
 			Adatavalidade.setText(p.getDataVal());
 			Avalorunitcomp.setText(p.getValorUniComp());
@@ -316,7 +316,7 @@ public class produtoController {
 		String prod;
 		Produto p;
 		try {
-		if (   !Aquantidade.getText().isEmpty()  && !Apeso.getText().isEmpty()
+		if (  !Adescricao.getText().isEmpty() && !Anotafiscal.getText().isEmpty() && !Aquantidade.getText().isEmpty()  && !Apeso.getText().isEmpty()
 				&& !Adatacompra.getText().isEmpty() && !Adatavalidade.getText().isEmpty() && !Avalorunitcomp.getText().isEmpty()
 				&& !Avalortotcomp.getText().isEmpty() && !Avalorunitvenda.getText().isEmpty()
 				&& !Avalortotvenda.getText().isEmpty()) {
@@ -324,7 +324,8 @@ public class produtoController {
 			prod = tabelaproduto.getSelectionModel().getSelectedItem().getCod();
 			
 			p = Main.instanciaProduto().ConsultaProdutoCod(prod);
-	
+	        p.setDescProd(Adescricao.getText());
+	        p.setNf(Anotafiscal.getText());
 			p.setQuant(Aquantidade.getText());
 			p.setPeso(Apeso.getText());
 			p.setDataComp(Adatacompra.getText());
