@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="808.0" layoutX="-4.0" layoutY="-3.0">
+         <image>
+            <Image url="@../../Imagens/confraria-115.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="263.0" layoutY="243.0" mnemonicParsing="false" onAction="#botaoProduto" style="-fx-background-color: F0A718;" text="Gerenciar Produtos" />
+      <Button layoutX="433.0" layoutY="243.0" mnemonicParsing="false" onAction="#botaoConsumo" style="-fx-background-color: F0A718;" text="Gerenciar Consumo" />
+      <Button layoutX="80.0" layoutY="243.0" mnemonicParsing="false" onAction="#botaoCliente" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: F0A718;" text="Clientes" />
+      <Button layoutX="606.0" layoutY="243.0" mnemonicParsing="false" style="-fx-background-color: F0A718;" text="Fechamento de caixa" />
+      <Label layoutX="330.0" layoutY="360.0" prefHeight="20.0" prefWidth="229.0" text="Create By Cassio, Daniel e Emanuelle" textFill="#f0a718">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
