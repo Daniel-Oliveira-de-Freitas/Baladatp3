@@ -103,7 +103,7 @@ public class MainController implements Initializable {
 				Main.instanciaConsumo().AdicionarConsumo(consumo);		
 				}
 		} catch (IOException n) {
-			System.out.println("Houve algum erro!");
+		//	System.out.println("Houve algum erro!");
 		}
 	}
 	

@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Optional;
-import java.util.Random;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -15,18 +13,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 public class produtoController {
+	
+	private static long idCounter = 1001;
+	
 	@FXML
 	private TextField barradepesquisa;
 	
@@ -83,13 +81,13 @@ public class produtoController {
 
 	
 	public void acaobotaogeracod() {
-		int i;
-		Random gerador = new Random();
-		i = gerador.nextInt(1000) * 2;
-		lblcod.setText(String.valueOf(i));
-
-	}
-
+	 
+		//String currentCounter = String.valueOf(atomicCounter.getAndIncrement());
+       
+		lblcod.setText(String.valueOf(idCounter++));
+		
+		}
+	
 	public void cadastroProduto() throws FileNotFoundException, IOException {
 		String cod, nome, descProd, quant, fornecedor, cnpj, categoria, nf, dataComp, dataVal;
 		String peso;

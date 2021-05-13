@@ -295,11 +295,11 @@ public class ClienteController {
 		categoriafield.setText("");
 		creditofield.setText("");
 		categoriafield.setText("");
-		barraPesquisaexibir.setText("");
-		barraPesquisacredito.setText("");
-		valoresfield.setText("");
-		valoradicionalfield.setText("");
-		telaAlterar.setVisible(false);
+		//barraPesquisaexibir.setText("");
+		//barraPesquisacredito.setText("");
+	//	valoresfield.setText("");
+	//	valoradicionalfield.setText("");
+	//	telaAlterar.setVisible(false);
 	}
 
 	public void deleteCliente() {
