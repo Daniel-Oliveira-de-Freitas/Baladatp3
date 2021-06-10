@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="406.0" fitWidth="808.0" layoutX="-4.0" layoutY="-3.0">
          <image>
-            <Image url="file:///E:/Baladatp3/BaladaTp3/Imagens/confraria-115.jpg" />
+            <Image url="file:///F:/Baladatp3/Imagens/confraria.jpg" />
          </image>
       </ImageView>
       <Button layoutX="263.0" layoutY="243.0" mnemonicParsing="false" onAction="#botaoProduto" style="-fx-background-color: F0A718;" text="Gerenciar Produtos" />
