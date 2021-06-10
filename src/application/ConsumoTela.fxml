@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="787.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConsumoController">
+  <tabs>
+    <Tab fx:id="telaincluir" onSelectionChanged="#limpaCampos" text="Incluir Consumo">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="653.0" style="-fx-background-color: F0A718;">
+               <children>
+                  <Label layoutX="62.0" layoutY="172.0" prefHeight="19.0" prefWidth="104.0" text="Cód. Consumo" />
+                  <TextField fx:id="codconsumofield" layoutX="61.0" layoutY="190.0" />
+                  <Label layoutX="236.0" layoutY="173.0" prefHeight="17.0" prefWidth="77.0" text="RG Cliente:" />
+                  <TextField fx:id="rgfield" layoutX="232.0" layoutY="190.0" />
+                  <Label layoutX="411.0" layoutY="173.0" prefHeight="17.0" prefWidth="90.0" text="Cód. Produto:" />
+                  <TextField fx:id="codprodutofield" layoutX="406.0" layoutY="190.0" />
+                  <Label layoutX="578.0" layoutY="173.0" text=" Quantidade:" />
+                  <TextField fx:id="quantidadefield" layoutX="579.0" layoutY="191.0" />
+                  <Button layoutX="11.0" layoutY="339.0" mnemonicParsing="false" onAction="#acaobotaovoltar" prefHeight="26.0" prefWidth="63.0" text="Voltar" />
+                  <Button layoutX="715.0" layoutY="339.0" mnemonicParsing="false" onAction="#cadastroConsumo" prefHeight="26.0" prefWidth="63.0" text="Salvar" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="23.0" prefHeight="100.0" prefWidth="286.0" text="Consumo" textFill="#222222">
+                     <font>
+                        <Font name="Modern No. 20" size="64.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    
+    
+    <Tab fx:id="telagerenciar" onSelectionChanged="#ExibirTabela" text="Gerenciar Consumo">
+      <content>
+        <AnchorPane fx:id="telaalterar" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: F0A718;">
+               <children>
+                  <TextField fx:id="barrapesquisaconsumo" layoutX="158.0" layoutY="46.0" onKeyPressed="#PesquisarTabelaConsumo" prefHeight="26.0" prefWidth="374.0" />
+                  <Label layoutX="136.0" layoutY="14.0" text="Informe o RG, código de consumo ou Código do produto para realizar a busca:" />
+                  <Button layoutX="12.0" layoutY="334.0" mnemonicParsing="false" onAction="#acaobotaovoltar" prefHeight="26.0" prefWidth="63.0" text="Voltar" />
+                  <TableView fx:id="tabelaconsumo" layoutX="39.0" layoutY="82.0" prefHeight="230.0" prefWidth="644.0">
+                     <columns>
+                        <TableColumn fx:id="codconsumocoluna" prefWidth="154.0" text="Cód. Consumo:" />
+                        <TableColumn fx:id="rgcoluna" prefWidth="160.0" text="RG Cliente:" />
+                        <TableColumn fx:id="codprodutocoluna" minWidth="0.0" prefWidth="170.0" text="Cód. Produto" />
+                        <TableColumn fx:id="quantidadecoluna" prefWidth="158.0" text="Quantidade:" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="701.0" layoutY="190.0" mnemonicParsing="false" onAction="#alterarConsumo" prefHeight="26.0" prefWidth="68.0" text="Alterar" />
+                  <Button layoutX="701.0" layoutY="218.0" mnemonicParsing="false" onAction="#deleteConsumo" prefHeight="26.0" prefWidth="69.0" text="Deletar" />
+                  <Pane fx:id="telaalterar" focusTraversable="true" layoutY="-5.0" prefHeight="382.0" prefWidth="787.0" style="-fx-background-color: #ffffff;" visible="false">
+                     <children>
+                        <TextField fx:id="codconsumoalterar" layoutX="33.0" layoutY="166.0" />
+                        <TextField fx:id="rgalterar" layoutX="215.0" layoutY="166.0" />
+                        <TextField fx:id="codprodutoalterar" layoutX="394.0" layoutY="166.0" />
+                        <TextField fx:id="quantidadealterar" layoutX="577.0" layoutY="166.0" />
+                        <Text layoutX="33.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cód.Consumo" />
+                        <Text layoutX="394.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cód.produto" />
+                        <Text layoutX="215.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RG Cliente" />
+                        <Text layoutX="577.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade" />
+                        <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#acaobotaovoltartela" prefHeight="25.0" prefWidth="70.0" text="Voltar" />
+                        <Button layoutX="715.0" layoutY="343.0" mnemonicParsing="false" onAction="#salvarAlteracaoConsumo" prefHeight="25.0" prefWidth="64.0" text="Salvar" />
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
+      </content>
+
+      </Tab>
+      <Tab onSelectionChanged="#ExibirTabela2" text="Realizar Pagamento">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: F0A718;">
+               <children>
+                  <TextField fx:id="barrapesquisapagar" layoutX="158.0" layoutY="41.0" onKeyPressed="#PesquisarTabelaConsumo2" prefHeight="26.0" prefWidth="436.0" />
+                  <Label layoutX="166.0" layoutY="14.0" text="Informe o RG, código de consumo ou Código do produto para realizar a busca:" />
+                  <Button layoutX="637.0" layoutY="317.0" mnemonicParsing="false" text="Realizar o pagamento" />
+                  <Label layoutX="424.0" layoutY="321.0" prefHeight="17.0" prefWidth="85.0" text="Valor total:" />
+                  <Label layoutX="499.0" layoutY="321.0" prefHeight="17.0" prefWidth="85.0" />
+                  <TableView fx:id="tabelaconsumo2" layoutX="8.0" layoutY="77.0" prefHeight="222.0" prefWidth="778.0">
+                     <columns>
+                        <TableColumn fx:id="codconsumocoluna2" prefWidth="125.0" text="Cód. Consumo:" />
+                        <TableColumn fx:id="rgcoluna2" prefWidth="224.0" text="RG Cliente:" />
+                        <TableColumn fx:id="codprodutocoluna2" minWidth="0.0" prefWidth="198.39999389648438" text="Cód. Produto" />
+                        <TableColumn fx:id="quantidadecoluna2" prefWidth="229.5999755859375" text="Quantidade:" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: F0A718;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.produtoController">
+  <tabs>
+    <Tab onSelectionChanged="#tabelaProduto" text="Gerenciar Produto">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="715.0" layoutY="-2.0">
+                     <image>
+                        <Image url="file:///C:/Users/danie/%C1rea%20de%20Trabalho/BaladaTp3/Imagens/confraria-115.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="barradepesquisa" layoutX="235.0" layoutY="82.0" onKeyPressed="#pesquisaProduto" prefHeight="25.0" prefWidth="292.0" />
+                  <TableView fx:id="tabelaproduto" layoutX="60.0" layoutY="131.0" prefHeight="200.0" prefWidth="632.0">
+                    <columns>
+                      <TableColumn fx:id="codt" prefWidth="59.0" text="Código" />
+                      <TableColumn fx:id="nomet" prefWidth="82.0" text="Nome" />
+                        <TableColumn fx:id="desct" prefWidth="69.0" text="Descrição" />
+                        <TableColumn fx:id="quantt" prefWidth="63.0" text="Quantidade" />
+                        <TableColumn fx:id="pesot" prefWidth="60.0" text="Peso" />
+                        <TableColumn fx:id="dtcompt" prefWidth="70.0" text="Data Comp" />
+                        <TableColumn fx:id="dtvalt" prefWidth="83.0" text="Data Valid" />
+                        <TableColumn fx:id="nft" prefWidth="74.0" text="Nota Fiscal" />
+                        <TableColumn fx:id="fornecedort" prefWidth="71.0" text="Fornecedor" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="275.0" layoutY="65.0" prefHeight="17.0" prefWidth="221.0" text="Digite o Código ou o Nome do Produto" />
+                  <Button layoutX="703.0" layoutY="237.0" mnemonicParsing="false" onAction="#alterarProduto" prefHeight="25.0" prefWidth="90.0" text="Alterar" />
+                  <Button layoutX="702.0" layoutY="271.0" mnemonicParsing="false" onAction="#delet" prefHeight="25.0" prefWidth="90.0" text="Deletar" />
+                  <Button layoutX="702.0" layoutY="305.0" mnemonicParsing="false" onAction="#acaobotaovoltar" prefHeight="25.0" prefWidth="90.0" text="Voltar" />
+                  <Pane fx:id="alterarProdutoTela" focusTraversable="true" layoutX="11.0" layoutY="7.0" prefHeight="346.0" prefWidth="784.0" visible="false">
+                     <children>
+                      <AnchorPane focusTraversable="true" layoutX="-10.0" layoutY="-10.0" minHeight="0.0" minWidth="0.0" prefHeight="356.0" prefWidth="800.0" style="-fx-background-color: F0A718;;">
+                           <children>
+                              <Label layoutX="105.0" layoutY="138.0" prefHeight="17.0" prefWidth="69.0" text="Quantidade" />
+                              <TextField fx:id="Aquantidade" layoutX="100.0" layoutY="155.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label layoutX="104.0" layoutY="187.0" prefHeight="17.0" prefWidth="98.0" text="Data de Compra" />
+                              <TextField fx:id="Adatacompra" layoutX="99.0" layoutY="204.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label layoutX="438.0" layoutY="140.0" prefHeight="17.0" prefWidth="69.0" text="Peso" />
+                              <TextField fx:id="Apeso" layoutX="433.0" layoutY="158.0" prefWidth="200.0" />
+                              <Label layoutX="437.0" layoutY="189.0" prefHeight="17.0" prefWidth="95.0" text="Data de Validade" />
+                              <TextField fx:id="Adatavalidade" layoutX="432.0" layoutY="207.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label layoutX="105.0" layoutY="239.0" prefHeight="17.0" prefWidth="139.0" text="Valor unitario de Compra" />
+                              <TextField fx:id="Avalorunitcomp" layoutX="100.0" layoutY="256.0" prefWidth="200.0" />
+                              <Label layoutX="104.0" layoutY="288.0" prefHeight="17.0" prefWidth="138.0" text="Valor unitario de compra" />
+                              <TextField fx:id="Avalorunitvenda" layoutX="99.0" layoutY="305.0" prefWidth="200.0" />
+                              <Label layoutX="439.0" layoutY="240.0" prefHeight="17.0" prefWidth="122.0" text="Valor total de compra" />
+                              <TextField fx:id="Avalortotcomp" layoutX="434.0" layoutY="257.0" prefWidth="200.0" />
+                              <Label layoutX="438.0" layoutY="289.0" prefHeight="17.0" prefWidth="112.0" text="Valor total de venda" />
+                              <TextField fx:id="Avalortotvenda" layoutX="433.0" layoutY="306.0" prefWidth="200.0" />
+                              <Label fx:id="Acod" layoutX="159.0" layoutY="25.0" prefHeight="17.0" prefWidth="50.0" text="Código" />
+                              <Label fx:id="Anome" layoutX="158.0" layoutY="57.0" prefHeight="17.0" prefWidth="138.0" text="Nome" />
+                              <Button layoutX="705.0" layoutY="298.0" mnemonicParsing="false" onAction="#salvarAlteracaoProduto" prefHeight="25.0" prefWidth="68.0" text="Salvar" />
+                              <Button layoutX="705.0" layoutY="259.0" mnemonicParsing="false" onAction="#acaobotaovoltarT" prefHeight="25.0" prefWidth="68.0" text="Voltar" />
+                              <Label layoutX="105.0" layoutY="24.0" text="Código :" />
+                              <Label layoutX="105.0" layoutY="57.0" text="Nome :" />
+                              <Label layoutX="100.0" layoutY="90.0" text="Descrição " />
+                              <ImageView fitHeight="85.0" fitWidth="80.0" layoutX="715.0" layoutY="-2.0">
+                                 <image>
+                                    <Image url="@../../Imagens/Sem%20título-1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="Adescricao" layoutX="99.0" layoutY="108.0" prefWidth="200.0" />
+                              <Label layoutX="435.0" layoutY="47.0" text="Fornecedor" />
+                              <Label fx:id="Afornecedor" layoutX="508.0" layoutY="48.0" text="Fornecedor" />
+                              <Label layoutX="434.0" layoutY="92.0" text="Nota Fiscal" />
+                              <TextField fx:id="Anotafiscal" layoutX="433.0" layoutY="110.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab onSelectionChanged="#acaobotaogeracod" text="Incluir Produto">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="43.0" layoutY="54.0" text="Código :" />
+                  <TextField fx:id="lblquant" layoutX="368.0" layoutY="125.0" prefHeight="25.0" prefWidth="301.0" />
+                  <Label layoutX="369.0" layoutY="38.0" text="Nome :" />
+                  <TextField fx:id="lblnome" layoutX="364.0" layoutY="52.0" prefHeight="25.0" prefWidth="309.0" />
+                  <Label layoutX="370.0" layoutY="111.0" text="Quantidade :" />
+                  <Label fx:id="lblcod" layoutX="108.0" layoutY="50.0" prefHeight="25.0" prefWidth="105.0" />
+                  <TextField fx:id="lblpeso" layoutX="547.0" layoutY="249.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="549.0" layoutY="235.0" text="Peso :" />
+                  <Label layoutX="36.0" layoutY="109.0" text="Descrição do produto  :" />
+                  <TextField fx:id="lbldescProd" layoutX="33.0" layoutY="125.0" prefHeight="25.0" prefWidth="291.0" />
+                  <Label layoutX="547.0" layoutY="174.0" text="Categoria :" />
+                  <TextField fx:id="lblcategoria" layoutX="547.0" layoutY="189.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="206.0" layoutY="233.0" text="Data compra :" />
+                  <Label layoutX="368.0" layoutY="232.0" text="Data validade :" />
+                  <Label layoutX="35.0" layoutY="171.0" text="Fornecedor :" />
+                  <TextField fx:id="lblfornecedor" layoutX="33.0" layoutY="185.0" prefHeight="25.0" prefWidth="290.0" />
+                  <TextField fx:id="lblnf" layoutX="34.0" layoutY="248.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="37.0" layoutY="232.0" text="Nota fiscal :" />
+                  <Label layoutX="371.0" layoutY="169.0" text="CNPJ :" />
+                  <TextField fx:id="lblcnpj" layoutX="366.0" layoutY="184.0" prefHeight="25.0" prefWidth="123.0" />
+                  <TextField fx:id="lblvlunitcomp" layoutX="32.0" layoutY="317.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="34.0" layoutY="302.0" text="Valor unit compra :" />
+                  <TextField fx:id="lblvltotcomp" layoutX="203.0" layoutY="316.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="203.0" layoutY="302.0" text="Valor total compra :" />
+                  <TextField fx:id="lblvlunitvend" layoutX="366.0" layoutY="314.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="369.0" layoutY="298.0" text="Valor unit venda :" />
+                  <TextField fx:id="lblvltotvend" layoutX="545.0" layoutY="314.0" prefHeight="25.0" prefWidth="123.0" />
+                  <Label layoutX="547.0" layoutY="299.0" text="Valor total venda :" />
+                  <Button layoutX="724.0" layoutY="314.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="25.0" prefWidth="68.0" text="Salvar" />
+                  <Button layoutX="723.0" layoutY="281.0" mnemonicParsing="false" onAction="#acaobotaovoltar" prefHeight="25.0" prefWidth="68.0" text="Voltar" />
+                  <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="715.0" layoutY="-2.0">
+                     <image>
+                        <Image url="@../../Imagens/Sem%20título-1.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="lbldtcomp" layoutX="203.0" layoutY="249.0" prefHeight="25.0" prefWidth="123.0" />
+                  <TextField fx:id="lbldtval" layoutX="366.0" layoutY="249.0" prefHeight="25.0" prefWidth="123.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
